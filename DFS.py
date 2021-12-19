@@ -27,7 +27,26 @@ while len(list_vertex)!=0:
 # print(f"лист вершин{list_vertex }")['B']
 
 
+ #Using a Python dictionary to act as an adjacency list
+graph = {
+    "A":{"B","C"},
+    "B":{"A","E","C"},
+    "C":{"A","B","D"},
+    "D":{"C"},
+    "E":{"B"}
+}
 
+visited = set() # Set to keep track of visited nodes.
+
+def dfs(visited, graph, node):
+    if node not in visited:
+        print (node)
+        visited.add(node)
+        for neighbour in graph[node]:
+            dfs(visited, graph, neighbour)
+
+# Driver Code
+dfs(visited, graph, 'A')
 
 
 
